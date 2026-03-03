@@ -1,0 +1,12 @@
+[{
+  "_id": {
+    "$oid": "69a60e3b553d7e09f6fbde8f"
+  },
+  "entity": "Product",
+  "entityId": "1",
+  "action": "DELETE",
+  "oldData": {},
+  "timestamp": {
+    "$date": "2026-03-02T22:24:59.968Z"
+  }
+}]
