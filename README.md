@@ -1,100 +1,84 @@
-# MegaStore Global – Database Modernization Project
+📌 Project Summary: Hybrid Backend API – MySQL + MongoDB
 
-## Overview
+• Tech Stack: Node.js, Express, MySQL, MongoDB, Mongoose, dotenv
+• Goal: Demonstrate integration of relational (MySQL) and non-relational (MongoDB) databases in one backend application.
+• Focus: Database configuration, architecture design, and partial API functionality.
 
-This project migrates a legacy flat Excel system into a scalable architecture using:
-
-- PostgreSQL (Relational Data)
-- MongoDB (Audit Logs)
-- Node.js + Express (REST API)
 
 ---
 
-## Justification
+🏗 Architecture
 
-### Why SQL?
+• MySQL: Stores structured business data (Products).
+• MongoDB: Stores audit logs with schema validation.
+• Express: Manages routes and middleware.
+• Documentation: Includes database diagrams, structural docs, and a CSV dataset.
 
-Transactional and structured data such as:
-- Customers
-- Orders
-- Products
-- Suppliers
-
-Requires:
-- Strong consistency
-- Referential integrity
-- ACID compliance
-
-The schema was normalized up to Third Normal Form (3NF) to eliminate redundancy and ensure data integrity.
-
-### Why MongoDB?
-
-Used for audit logging because:
-
-- Flexible schema
-- High write performance
-- Logs are event-based
-- Embedding oldData simplifies retrieval
 
 ---
 
-## Installation
+📂 Project Structure
 
-### 1. Clone repository
+• config/ → Database connections
+• controllers/ → Product logic
+• routes/ → Product routes
+• docs/ → Diagrams and documentation
+• Core files: app.js, .env, package.json, database.csv
 
-```bash
-git clone https://github.com/NinaArevalo/Prueba-de-desempe-o-DB.git
 
-Create .env file:
+---
 
-PORT=3000
-POSTGRES_URL=your_postgres_connection
-MONGO_URL=your_mongo_connection
-4. Run project
-npm start
-Mass Migration
+✅ Implemented
 
-Execute:
+1. Server setup with Express, JSON middleware, and environment variables.
+2. MySQL integration using mysql2/promise with connection pooling.
+3. MongoDB integration using Mongoose, with audit_logs collection and schema validation (fields: entity, entityId, action, timestamp).
+4. Basic routing for /products.
 
-node scripts/importCSV.js
 
-This script:
+---
 
-Reads CSV
+⚠️ Limitations
 
-Detects duplicates
+• CRUD operations incomplete.
+• Audit logging logic not fully integrated.
+• Missing global error handling.
+• No advanced validation or role-based access control.
 
-Prevents entity duplication
 
-Maintains idempotency
+---
 
-Available Endpoints
-Products
+📊 Documentation
 
-GET /products
+Includes MySQL and MongoDB diagrams, structural documentation, and CSV dataset.
 
-GET /products/:id
+---
 
-POST /products
+🎯 Objective
 
-PUT /products/:id
+• Showcase hybrid database design.
+• Ensure separation of concerns.
+• Apply schema validation in MongoDB.
+• Maintain structured backend organization.
 
-DELETE /products/:id (Logs in MongoDB)
 
-Business Queries
+---
 
-Implemented using:
+🚀 Future Improvements
 
-JOIN + GROUP BY in PostgreSQL
+• Full CRUD functionality.
+• Automated audit logging.
+• Centralized error handling.
+• Input validation and role-based middleware.
+• Deployment setup.
 
-Aggregation Framework in MongoDB (for logs if needed)
 
-Extra Features
+---
 
-Unique constraints
+👉 In short: this is a hybrid backend project combining MySQL and MongoDB, with a well-defined architecture and documentation, though the API is only partially implemented.
 
-Schema validation in MongoDB
+Autor
 
-Error handling
-
-Environment variables
+Andreina Arevalo Pidiache
+Riwi
+2026
